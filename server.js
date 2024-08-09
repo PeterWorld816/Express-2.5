@@ -2,8 +2,10 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express(); // Declare 'app' as a constant
 const uuid = require('uuid'); // Declare 'uuid' as a constant
+const path = require('path');
 
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 let users = [  { id: 1,
   name: "Max Musterman",
