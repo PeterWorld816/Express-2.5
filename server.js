@@ -5,7 +5,14 @@ const uuid = require('uuid'); // Declare 'uuid' as a constant
 const path = require('path');
 
 app.use(bodyParser.json());
+
+// Serve static files from the "public" directory
 app.use(express.static('public'));
+
+// Serve the documentation.html file
+app.get('/documentation', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'documentation.html'));
+});
 
 let users = [  { id: 1,
   name: "Max Musterman",
