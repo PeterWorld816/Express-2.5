@@ -1,113 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Documentation</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>Movie & User API Documentation</h1>
 
-    <p>This document provides an overview of the API endpoints available in the Movie & User API, including the request methods, URLs, and expected responses.</p>
+    <p>
+      This document provides an overview of the API endpoints available in the
+      Movie & User API, including the request methods, URLs, and expected
+      responses.
+    </p>
 
     <h2>Movies Endpoints</h2>
     <table>
-        <tr>
-            <th>Request</th>
-            <th>URL</th>
-            <th>Description</th>
-            <th>Response</th>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/movies</td>
-            <td>Retrieves a list of all movies in the database.</td>
-            <td>A JSON array of movie objects.</td>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/movies/:title</td>
-            <td>Retrieves details of a specific movie by title.</td>
-            <td>A JSON object containing movie details.</td>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/genres/:genre</td>
-            <td>Retrieves all movies of a specified genre.</td>
-            <td>A JSON object containing an array of movies in the specified genre.</td>
-        </tr>
-        <tr>
-            <td>GET</td>
-            <td>/directors/:director</td>
-            <td>Retrieves the bio of a specified director.</td>
-            <td>A JSON object containing the director's bio and birth year.</td>
-        </tr>
+      <tr>
+        <th>Request</th>
+        <th>URL</th>
+        <th>Description</th>
+        <th>Response</th>
+        <th>Body</th>
+        <!-- Added BODY column -->
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies</td>
+        <td>Retrieves a list of all movies in the database.</td>
+        <td>A JSON array of movie objects.</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies/:title</td>
+        <td>Retrieves details of a specific movie by title.</td>
+        <td>A JSON object containing movie details.</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/genres/:genre</td>
+        <td>Retrieves information about a specific genre.</td>
+        <td>A JSON object containing the genre's name and description.</td>
+        <td>N/A</td>
+        <!-- No body needed for GET requests -->
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/directors/:director</td>
+        <td>Retrieves the bio of a specified director.</td>
+        <td>A JSON object containing the director's bio and birth year.</td>
+        <td>N/A</td>
+      </tr>
     </table>
 
     <h2>Users Endpoints</h2>
     <table>
-        <tr>
-            <th>Request</th>
-            <th>URL</th>
-            <th>Description</th>
-            <th>Response</th>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/users</td>
-            <td>Registers a new user.</td>
-            <td>A confirmation message and the user's data.</td>
-        </tr>
-        <tr>
-            <td>PUT</td>
-            <td>/users/:userId</td>
-            <td>Updates information for a specified user.</td>
-            <td>A confirmation message.</td>
-        </tr>
-        <tr>
-            <td>POST</td>
-            <td>/users/:userId/favorites/:movieId</td>
-            <td>Adds a specified movie to a user's list of favorites.</td>
-            <td>A confirmation message.</td>
-        </tr>
-        <tr>
-            <td>DELETE</td>
-            <td>/users/:userId/favorites/:movieId</td>
-            <td>Removes a specified movie from a user's list of favorites.</td>
-            <td>A confirmation message.</td>
-        </tr>
-        <tr>
-            <td>DELETE</td>
-            <td>/users/:userId</td>
-            <td>Deregisters a user by deleting their account.</td>
-            <td>A confirmation message.</td>
-        </tr>
+      <tr>
+        <th>Request</th>
+        <th>URL</th>
+        <th>Description</th>
+        <th>Response</th>
+        <th>Body</th>
+        <!-- Added BODY column -->
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users</td>
+        <td>Registers a new user.</td>
+        <td>A confirmation message and the user's data.</td>
+        <td>
+          <pre><code>{
+  "username": "newUser",
+  "email": "user@example.com",
+  "password": "yourPassword"
+}</code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/users/:userId</td>
+        <td>Updates information for a specified user.</td>
+        <td>A confirmation message.</td>
+        <td>
+          <pre><code>{
+  "username": "updatedUser"
+}</code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users/:userId/favorites/:movieId</td>
+        <td>Adds a specified movie to a user's list of favorites.</td>
+        <td>A confirmation message.</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/:userId/favorites/:movieId</td>
+        <td>Removes a specified movie from a user's list of favorites.</td>
+        <td>A confirmation message.</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/:userId</td>
+        <td>Deregisters a user by deleting their account.</td>
+        <td>A confirmation message.</td>
+        <td>N/A</td>
+      </tr>
     </table>
 
     <h2>Example JSON Responses</h2>
@@ -189,6 +220,5 @@
     <pre><code>{
   "message": "User deregistered"
 }</code></pre>
-
-</body>
+  </body>
 </html>
